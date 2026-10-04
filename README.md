@@ -11,36 +11,46 @@ Mahdi Saleh, Imad H. Elhajj, and Daniel Asmar,
 IEEE DataPort, 2020.  
 DOI: 10.21227/6a44-0880
 
-The original dataset contains 4,475 one-second samples, each consisting of 10 consecutive intensity measurements and a physical-state label:
+The original dataset contains 4,475 one-second samples. Each sample consists of 10 consecutive intensity measurements and a physical-state label:
 
-- `+1`: water
-- `-1`: oil
+- `+1`: Water
+- `-1`: Oil
 
-The original dataset is not reproduced here. It can be obtained directly from IEEE DataPort.
+The original dataset is not reproduced in this repository. It can be obtained directly from IEEE DataPort.
+
+## Dataset reconstruction
+
+The sequential structure of the published dataset was reconstructed from the original physical-state labels.
+
+Consecutive samples with the same label were grouped into 45 label runs. Based on the experimental acquisition structure, these were categorised as:
+
+- **Transition recordings:** alternating Oil/Water recordings used to study sensor response following state changes.
+- **Stable recordings:** prolonged recordings in a single physical state, used to characterise stable-state response.
+
+Four prolonged stable-state runs were identified: Runs 20, 21, 30, and 45.
+
+![Reconstructed label runs](results/label_runs_mean_response.png)
 
 ## Derived data
 
-The files in this repository are derived from the public dataset above and contain additional annotations and data products generated for the present sensor-memory analysis.
+The repository contains derived annotations and analysis outputs generated from the public dataset, including:
 
-These include:
-
-- temporal reconstruction into consecutive physical-state runs;
-- recorded state-change annotations;
-- sample provenance information;
-- mean intensity and temporal response change features;
-- low- and high-response-change categories;
-- a balanced analysis dataset;
-- transition and sensor-memory analysis outputs.
+- reconstructed label-run information;
+- recorded state-change information;
+- stable-state reference data;
+- sensor-memory analysis outputs;
+- classification analysis outputs.
 
 ## Analysis
 
-The accompanying scripts reproduce the main analyses used to study:
+The scripts reproduce the analysis used to investigate:
 
-- sensor-memory persistence;
-- oil-to-water and water-to-oil asymmetry;
-- early-state classification;
-- leave-one-run-out validation;
-- classification performance as a function of time following a recorded state change.
+- sensor-memory persistence following recorded state changes;
+- differences between Oil-to-Water and Water-to-Oil response behaviour;
+- between-transition variability;
+- early-state classification.
+
+The analysis scripts are numbered in the order in which they should be run.
 
 ## Citation
 
