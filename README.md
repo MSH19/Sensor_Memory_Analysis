@@ -52,6 +52,34 @@ The scripts reproduce the analysis used to investigate:
 
 The analysis scripts are numbered in the order in which they should be run.
 
+## Scripts
+
+The analysis scripts are numbered in the order in which they should be run.
+
+### S01 — Label-run reconstruction
+
+Reconstructs consecutive physical-state label runs from the original dataset.
+
+The script:
+
+- groups consecutive samples with the same Oil/Water label;
+- identifies 45 label runs;
+- distinguishes transition recordings from prolonged stable-state recordings;
+- generates the label-run annotation table and reconstruction figure.
+
+### S02 — State-change reconstruction
+
+Identifies the recorded physical-state changes between consecutive label runs.
+
+The script:
+
+- identifies 44 recorded state-change boundaries;
+- assigns the source and destination runs to each transition;
+- identifies the transition direction (Oil → Water or Water → Oil);
+- retains the recording type of the source and destination runs.
+
+The reconstructed dataset contains 22 Oil → Water and 22 Water → Oil recorded state changes.
+
 ## Citation
 
 Citation details for the associated manuscript will be added following publication.
